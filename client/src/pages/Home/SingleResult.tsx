@@ -12,7 +12,12 @@ const SingleResult: React.FC<SingleResultProps> = ({
   imgUrl,
 }) => {
   return (
-    <div onClick={onClick}>
+    <div
+      onClick={onClick}
+      style={{
+        cursor: onClick ? "pointer" : "default", // Indicate it's clickable
+      }}
+    >
       <img src={imgUrl} alt="search-result-image" />
       <h2>{entityName}</h2>
     </div>
