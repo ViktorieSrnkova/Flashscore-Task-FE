@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../components/Button";
+import "./css//SearchArea.css";
 
 interface SearchAreaProps {
   onClick: () => void;
@@ -8,14 +9,15 @@ interface SearchAreaProps {
 const SearchArea: React.FC<SearchAreaProps> = ({ onClick }) => {
   return (
     <>
-      <div className="top-line"></div>
-      <input type="search" id="search"></input>
-      <Button content={"Hledat"} onClick={onClick} />
+      <div className="top-line">
+        <input type="search" id="search" placeholder="search ..."></input>
+        <Button content={"search"} onClick={onClick} />
+      </div>
       <div className="bottom-line">
-        <Button content={"Vše"} onClick={onClick} />
-        <Button content={"Soutěže"} onClick={onClick} />
-        <Button content={"Týmy"} onClick={onClick} />
-        <Button content={"Hráči"} onClick={onClick} />
+        <Button content={"all"} onClick={onClick} />
+        <Button content={"competitions"} onClick={onClick} />
+        <Button content={"Teams"} onClick={onClick} />
+        <Button content={"Participants"} onClick={onClick} />
       </div>
     </>
   );

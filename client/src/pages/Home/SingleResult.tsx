@@ -1,7 +1,8 @@
 import React from "react";
+import "./css//SingleResult.css";
 
 interface SingleResultProps {
-  onClick?: () => void;
+  onClick: () => void;
   imgUrl?: string;
   entityName: string;
 }
@@ -12,13 +13,8 @@ const SingleResult: React.FC<SingleResultProps> = ({
   imgUrl,
 }) => {
   return (
-    <div
-      onClick={onClick}
-      style={{
-        cursor: onClick ? "pointer" : "default", // Indicate it's clickable
-      }}
-    >
-      <img src={imgUrl} alt="search-result-image" />
+    <div onClick={onClick} className="card">
+      <img src={imgUrl} alt="search-result-image" className="detail-img" />
       <h2>{entityName}</h2>
     </div>
   );

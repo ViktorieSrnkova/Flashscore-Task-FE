@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import "./css//Alert.css";
 
 interface AlertProps {
   message: string;

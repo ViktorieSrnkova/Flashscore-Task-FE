@@ -2,6 +2,7 @@ import React from "react";
 import Title from "../../components/Title";
 import Repeater from "./Repeater";
 import SearchArea from "./SearchArea";
+import "./css//Results.css";
 
 const Results: React.FC = () => {
   //sem dostat vytrideny data z api res (vytrideny jako jsou mock data)
@@ -33,8 +34,8 @@ const Results: React.FC = () => {
     a.sportName.localeCompare(b.sportName)
   );
   return (
-    <div>
-      <Title content={"Výsledky"} />
+    <div className="page">
+      <Title content={"Results"} />
       <SearchArea onClick={doNothing} />
       <Repeater data={sortedData} />
     </div>

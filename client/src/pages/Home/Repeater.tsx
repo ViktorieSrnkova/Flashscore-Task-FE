@@ -2,7 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import SingleResult from "./SingleResult";
 import CategoryHeader from "../../components/CategoryHeader";
-import placeholderImg from "../../assets/placeholder.jpg";
+import placeholderImg from "../../assets/placeholder.png";
+import "./css//Repeater.css";
 
 interface RepeaterProps {
   data: {
@@ -22,13 +23,13 @@ const Repeater: React.FC<RepeaterProps> = ({ data }) => {
   let previousSportName = "";
 
   return (
-    <div>
+    <div className="rep-wrapper">
       {data.map((item) => {
         const sportChanged = item.sportName !== previousSportName;
         previousSportName = item.sportName;
 
         return (
-          <div key={item.id}>
+          <div key={item.id} className="rep-container">
             {sportChanged && <CategoryHeader content={item.sportName} />}
             <SingleResult
               imgUrl={item.imageUrl || placeholderImg}

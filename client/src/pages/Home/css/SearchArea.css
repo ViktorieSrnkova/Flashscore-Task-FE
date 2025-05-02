@@ -1,0 +1,28 @@
+.top-line {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 8px;
+  width: 80%;
+  justify-content: center;
+}
+.top-line input {
+  font-size: 13px;
+  width: 50%;
+  border: solid 1px #c8cdcd;
+  border-radius: 8px;
+  height: 36px;
+  padding-left: 12px;
+  color: #001e28;
+}
+.bottom-line {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 8px;
+  width: 80%;
+  justify-content: start;
+  padding: 8px;
+  margin-left: 16px;
+  margin-bottom: 8px;
+}
