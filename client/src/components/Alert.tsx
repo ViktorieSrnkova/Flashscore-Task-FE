@@ -12,7 +12,16 @@ const Alert: React.FC<AlertProps> = ({ message, onClick }) => {
     <div className="alert-bg">
       <div className="alert-card">
         {message}
-        <Button content={"Obnovit"} onClick={onClick} />
+        <Button
+          content={"Obnovit"}
+          onClick={onClick}
+          style={{
+            backgroundColor: " #ff0046",
+            color: "#fff",
+            fontWeight: "bold",
+            width: "fit-content",
+          }}
+        />
       </div>
     </div>
   );

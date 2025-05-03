@@ -28,7 +28,7 @@ const Results: React.FC = () => {
   ];
 
   const doNothing = () => {
-    console.log("MockData in Results:", mockData);
+    console.log("Did nothing");
   };
   const sortedData = mockData.sort((a, b) =>
     a.sportName.localeCompare(b.sportName)
