@@ -5,11 +5,23 @@ interface ButtonProps {
   style?: CSSProperties;
   content: ReactNode;
   onClick: () => void;
+  active?: boolean;
+  disabled?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ style, content, onClick }) => {
+const Button: React.FC<ButtonProps> = ({
+  style,
+  content,
+  onClick,
+  active,
+  disabled,
+}) => {
   return (
-    <div style={style} className="btn" onClick={onClick}>
+    <div
+      style={style}
+      className={`btn ${active ? "active" : ""} ${disabled ? "disabled" : ""}`}
+      onClick={onClick}
+    >
       {content}
     </div>
   );

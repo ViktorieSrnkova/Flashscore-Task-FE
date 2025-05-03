@@ -3,7 +3,7 @@ import Button from "./Button";
 import "./css//Alert.css";
 
 interface AlertProps {
-  message: string;
+  message: string | null;
   onClick: () => void;
 }
 
@@ -13,7 +13,7 @@ const Alert: React.FC<AlertProps> = ({ message, onClick }) => {
       <div className="alert-card">
         {message}
         <Button
-          content={"Obnovit"}
+          content={"Refresh"}
           onClick={onClick}
           style={{
             backgroundColor: " #ff0046",

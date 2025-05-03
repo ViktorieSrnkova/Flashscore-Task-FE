@@ -11,11 +11,23 @@
   justify-content: center;
 }
 .btn:hover {
-  background-color: #f5f4f4;
+  background-color: #c8cdcd;
 }
-.btn .active {
+.active {
   background-color: #ff0046;
   color: white;
+  font-weight: bold;
+  cursor: default;
+}
+.active:hover {
+  background-color: #ff0046;
+  font-weight: bold;
+}
+.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: #eee;
+  color: #c8cdcd;
 }
 @media screen and (max-width: 800px) {
   .btn {

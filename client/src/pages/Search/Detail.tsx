@@ -1,69 +1,55 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Title from "../../components/Title";
 import placeholderImg from "../../assets/placeholder.png";
 import "./css//Detail.css";
+import Button from "../../components/Button";
+import { handleTypeFormatting } from "../../utils/formatData";
 
-const mockData = [
-  {
-    id: "1",
-    name: "Novak Djokovic",
-    imageUrl: "https://www.livesport.cz/res/image/data/tSfwGCdM-0rY6MEPI.png",
-    sportName: "Football",
-    country: "United states of America",
-    gender: {
-      name: "Male",
-    },
-  },
-  {
-    id: "2",
-    name: "Rafael Nadal",
-    imageUrl: null,
-    sportName: "Tennis",
-    country: "Spain",
-    gender: {
-      name: "Male",
-    },
-  },
-  {
-    id: "3",
-    name: "Roger Federer",
-    imageUrl: null,
-    sportName: "Football",
-    country: "Switzerland",
-    gender: {
-      name: "Male",
-    },
-  },
-];
+interface DetailProps {
+  data: any[];
+}
 
-const Detail: React.FC = () => {
+const Detail: React.FC<DetailProps> = ({ data }) => {
+  const navigate = useNavigate();
+  const goHome = () => navigate(`/`);
   const { id } = useParams<{ id: string }>();
 
-  const item = mockData.find((item) => item.id === id);
-
-  if (!item) return <p>Item not found</p>;
+  const item = data.find((item) => item.id === id);
 
   return (
     <div className="page">
       <Title content={"Detail"} />
-      <div className="content-box">
-        <img
-          src={item.imageUrl || placeholderImg}
-          alt={item.name}
-          className="results-img"
-        />
-        <div className="right-side">
-          <h2>Full name:</h2>
-          <p>{item.name}</p>
-          <h2>Country:</h2>
-          <p>{item.country}</p>
-          <h2>Sport: </h2>
-          <p>{item.sportName}</p>
-          <h2>Gender: </h2>
-          <p>{item.gender.name}</p>
+      {!item ? (
+        <div className="nothing">
+          <p className="none">Item not found</p>
+          <Button content={"Back to searching"} onClick={goHome} />
         </div>
-      </div>
+      ) : (
+        <div className="content-box">
+          <img
+            src={
+              item.images[0]?.path !== undefined
+                ? `https://www.livesport.cz/res/image/data/${item.images[0]?.path}`
+                : placeholderImg
+            }
+            alt={item.name}
+            className="results-img"
+          />
+          <div className="right-side">
+            <h2>Full name:</h2>
+            <p>{item.name}</p>
+            <h2>Country:</h2>
+            <p>{item.defaultCountry.name}</p>
+            <h2>Sport: </h2>
+            <p>{item.sport.name}</p>
+            <h2>Gender: </h2>
+            <p>{item.gender.name}</p>
+            <h2>Role: </h2>
+            <p>{handleTypeFormatting(item.type.name)}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -6,35 +6,43 @@ import placeholderImg from "../../assets/placeholder.png";
 import "./css//Repeater.css";
 
 interface RepeaterProps {
-  data: {
-    id: string;
-    name: string;
-    imageUrl: string | null;
-    sportName: string;
-  }[];
+  data: any[];
+  searched: boolean;
 }
 
-const Repeater: React.FC<RepeaterProps> = ({ data }) => {
+const Repeater: React.FC<RepeaterProps> = ({ data, searched }) => {
   const navigate = useNavigate();
-  const onClick = (id: string) => navigate(`/detail/${id}`);
+  const goToDetail = (id: string) => navigate(`/detail/${id}`);
 
-  if (!data) return <p>Nebyly nalezeny žádné výsledky!</p>;
+  if (data.length === 0) {
+    return searched === true ? (
+      <p className="nothing-message">No results found!</p>
+    ) : (
+      <p className="nothing-message">
+        Start by using the search bar at the top!
+      </p>
+    );
+  }
 
   let previousSportName = "";
 
   return (
     <div className="rep-wrapper">
       {data.map((item) => {
-        const sportChanged = item.sportName !== previousSportName;
-        previousSportName = item.sportName;
+        const sportChanged = item.sport.name !== previousSportName;
+        previousSportName = item.sport.name;
 
         return (
           <div key={item.id} className="rep-container">
-            {sportChanged && <CategoryHeader content={item.sportName} />}
+            {sportChanged && <CategoryHeader content={item.sport.name} />}
             <SingleResult
-              imgUrl={item.imageUrl || placeholderImg}
+              imgUrl={
+                item.images[0]?.path !== undefined
+                  ? `https://www.livesport.cz/res/image/data/${item.images[0]?.path}`
+                  : placeholderImg
+              }
               entityName={item.name}
-              onClick={() => onClick(item.id)}
+              onClick={() => goToDetail(item.id)}
             />
           </div>
         );

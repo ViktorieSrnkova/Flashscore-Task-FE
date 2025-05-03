@@ -1,43 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import Title from "../../components/Title";
 import Repeater from "./Repeater";
-import SearchArea from "./SearchArea";
+import Search from "./Search";
 import "./css//Results.css";
+import { sortBySportName } from "../../utils/sortData";
 
-const Results: React.FC = () => {
-  //sem dostat vytrideny data z api res (vytrideny jako jsou mock data)
-  const mockData = [
-    {
-      id: "1",
-      name: "Novak Djokovic",
-      imageUrl: "https://www.livesport.cz/res/image/data/tSfwGCdM-0rY6MEPI.png",
-      sportName: "Football",
-    },
-    {
-      id: "2",
-      name: "Rafael Nadal",
-      imageUrl: null,
-      sportName: "Tennis",
-    },
-    {
-      id: "3",
-      name: "Roger Federer",
-      imageUrl: null,
-      sportName: "Football",
-    },
-  ];
+interface ResultsProps {
+  handleError: (message: string) => void;
+  setLoading: (loading: boolean) => void;
+  setData: (data: any[]) => void;
+  data: any[];
+  setErrorMessage: (error: string | null) => void;
+}
 
-  const doNothing = () => {
-    console.log("Did nothing");
-  };
-  const sortedData = mockData.sort((a, b) =>
-    a.sportName.localeCompare(b.sportName)
-  );
+const Results: React.FC<ResultsProps> = ({
+  setLoading,
+  setData,
+  data,
+  setErrorMessage,
+}) => {
+  const [searched, setSearched] = useState(false);
+
   return (
-    <div className="page">
+    <div className="res-page">
       <Title content={"Results"} />
-      <SearchArea onClick={doNothing} />
-      <Repeater data={sortedData} />
+      <Search
+        setLoading={setLoading}
+        setData={setData}
+        setSearched={setSearched}
+        setErrorMessage={setErrorMessage}
+      />
+      <Repeater data={sortBySportName(data)} searched={searched} />
     </div>
   );
 };
