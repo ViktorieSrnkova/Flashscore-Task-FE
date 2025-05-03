@@ -9,7 +9,6 @@
   font-size: 12px;
   align-items: center;
   justify-content: center;
-  height: 36px;
 }
 .btn:hover {
   background-color: #f5f4f4;
@@ -17,4 +16,9 @@
 .btn .active {
   background-color: #ff0046;
   color: white;
+}
+@media screen and (max-width: 800px) {
+  .btn {
+    padding: 8px;
+  }
 }

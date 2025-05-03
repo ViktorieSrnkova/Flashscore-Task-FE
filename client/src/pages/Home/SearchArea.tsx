@@ -15,9 +15,9 @@ const SearchArea: React.FC<SearchAreaProps> = ({ onClick }) => {
       </div>
       <div className="bottom-line">
         <Button content={"all"} onClick={onClick} />
-        <Button content={"competitions"} onClick={onClick} />
+        <Button content={"events"} onClick={onClick} />
         <Button content={"Teams"} onClick={onClick} />
-        <Button content={"Participants"} onClick={onClick} />
+        <Button content={"athletes"} onClick={onClick} />
       </div>
     </>
   );

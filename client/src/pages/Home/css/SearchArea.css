@@ -26,3 +26,15 @@
   margin-left: 16px;
   margin-bottom: 8px;
 }
+@media screen and (max-width: 800px) {
+  .top-line input {
+    width: 100%;
+  }
+  .top-line,
+  .bottom-line {
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 0;
+  }
+}
