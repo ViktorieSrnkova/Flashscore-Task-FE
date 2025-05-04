@@ -18,6 +18,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <div
+      role="button"
       style={style}
       className={`btn ${active ? "active" : ""} ${disabled ? "disabled" : ""}`}
       onClick={onClick}

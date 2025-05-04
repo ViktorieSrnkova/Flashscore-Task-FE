@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Results from "./pages/Home/Results";
-import Detail from "./pages/Search/Detail";
+import Detail from "./pages/Details/Detail";
 import "./App.css";
 import Loader from "./pages/Home/Loader";
 import Alert from "./components/Alert";

@@ -1,11 +1,21 @@
 .title {
   color: white;
-  width: 100%;
   text-align: center;
-  background-color: #001e28;
+  width: fit-content;
   margin: 0;
   padding: 20px;
+}
+.title-wrapper {
+  background-color: #001e28;
+  width: 100%;
+  height: fit-content;
   margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clickable {
+  cursor: pointer;
 }
 @media screen and (max-width: 800px) {
   .title {

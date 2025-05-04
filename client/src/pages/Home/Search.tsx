@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "../../components/Button";
 import "./css//Search.css";
-import { fetchSearchResults } from "../../api/__tests__/searchApi";
+import { fetchSearchResults } from "../../api/searchApi";
 import TYPE_IDS from "../../data/typeIds";
 import { useNavigate } from "react-router-dom";
 import { getQueryFromUrl } from "../../utils/urlHelpers";

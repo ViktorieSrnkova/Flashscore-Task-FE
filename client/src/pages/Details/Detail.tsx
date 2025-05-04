@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Title from "../../components/Title";
 import placeholderImg from "../../assets/placeholder.png";
-import "./css//Detail.css";
+import "./css/Detail.css";
 import Button from "../../components/Button";
 import { handleTypeFormatting } from "../../utils/formatData";
 

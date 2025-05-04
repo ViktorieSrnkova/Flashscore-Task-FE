@@ -10,7 +10,6 @@ export const fetchSearchResults = async (
 
   const url = `https://s.livesport.services/api/v2/search?type-ids=${ids}&project-type-id=1&project-id=602&lang-id=1&q=${query}&sport-ids=1,2,3,4,5,6,7,8,9`;
   const response = await fetch(url);
-  console.log(response);
   if (!response.ok) {
     switch (response.status) {
       case 503:
